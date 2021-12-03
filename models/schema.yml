@@ -1,5 +1,15 @@
 version: 2
 
+models:
+  - name: cleanse_books
+    description: "A table with books where all its attributes are valid"
+    columns:
+      - name: book_id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+
 sources:
   - name: public
     tables:
