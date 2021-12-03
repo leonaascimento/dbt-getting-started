@@ -17,7 +17,7 @@ with books_with_validation_checks as (
 		publication_date,
 		{{ is_date_mmddyyyy('publication_date') }} as is_pubication_date_valid_mmddyyyy,
 		publisher
-	from public.books
+	from {{ source('public', 'books') }}
 ),
 books_with_valid_attributes_only as (
 	select *
