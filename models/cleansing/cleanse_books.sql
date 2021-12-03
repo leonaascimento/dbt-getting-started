@@ -15,7 +15,7 @@ with books_with_validation_checks as (
 		text_reviews_count,
 		{{ is_number('text_reviews_count') }} as is_text_reviews_count_valid_number,
 		publication_date,
-		publication_date ~ '^(1[0-2]|0?[1-9])/(3[01]|[12][0-9]|0?[1-9])/[0-9]{4}$' as is_pubication_date_valid_mmddyyyy,
+		{{ is_date_mmddyyyy('publication_date') }} as is_pubication_date_valid_mmddyyyy,
 		publisher
 	from public.books
 ),
